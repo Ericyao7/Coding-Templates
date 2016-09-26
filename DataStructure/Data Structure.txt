@@ -1,0 +1,50 @@
+Data Structure
+	Queue:
+		push  pop top
+		always used for BFS
+
+
+	Stack
+		push  pop peak
+		如何实现一个栈（背）
+		1. Min-stack  
+		2. Implement stack by queue
+		3. Implement queue by stack
+		4. largest rectangle in histogram
+
+
+	logN ：要么排序 要么用堆来辅助
+
+	递增栈：
+		largest histogram
+		MaxTree  -  lintcode
+
+
+	Hash 都是O(1)
+		insert
+		delete
+		find
+
+	Hash Function
+	Collision
+		open Hashing(LinkedList)
+		closed hashing (Array)
+
+	Heap 树形的数据结构
+		往左靠拢
+		implementation
+			主要用动态数组去存
+			Heap｛
+				elems[], size;
+			｝
+			elems[1] is root
+			i's left child i*2, right child i*2+1
+
+		插入
+			先插入可以插入的位置，再不断和父亲比较
+		删除
+			用最后一个节点来把删除那个节点删除
+			一般用priorityqueue来做就好啦
+			（自己写一个比较器）
+
+		自己来实现一个堆  situp  sitdown

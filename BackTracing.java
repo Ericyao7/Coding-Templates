@@ -1,4 +1,4 @@
-//Used to implement Subset combination and 
+//Used to implement Subset combination and permutation
 
 
 public class Solution {
@@ -68,3 +68,50 @@ public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target
             item.remove(item.size()-1);  
         }  
     }
+
+
+
+//Permutation
+public class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+         ArrayList<List<Integer>> rst = new ArrayList<List<Integer>>();
+         if (nums == null) {
+             return rst; 
+         }
+         
+         if (nums.length == 0) {
+            rst.add(new ArrayList<Integer>());
+            return rst;
+         }
+
+         ArrayList<Integer> list = new ArrayList<Integer>();
+         //把［］开头的所有排列加入到rst
+         helper(rst, list, nums);
+         return rst;
+    }
+    
+
+    //把list 开头的所有排列加入到rest里面
+    public void helper(ArrayList<List<Integer>> rst, ArrayList<Integer> list, int[] nums){
+        //出口
+        if(list.size() == nums.length) {
+            rst.add(new ArrayList<Integer>(list));
+            return;
+        }
+        
+        //把［1］，［2］，［3］开头的分别加入rst
+        for(int i = 0; i < nums.length; i++){
+            //这句话很关键
+            if(list.contains(nums[i])){
+                continue;
+            }
+            list.add(nums[i]);  //把1加入到了［］， 变成了［1］开头，
+            //把［1］开头的加入rst，已经完成了
+            helper(rst, list, nums);
+            //因为现在是［1］开头，要［2］开头的话，就要
+            //答案里面result已经有［1，2，3］ ［1，3，2］   list=>[1]
+            list.remove(list.size() - 1);
+        }
+        
+    }
+}
