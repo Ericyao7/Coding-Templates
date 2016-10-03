@@ -115,3 +115,52 @@ public class Solution {
         
     }
 }
+
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class BuildingSubsequences {
+
+	public static String[] buildSubsequences(String s){
+		
+		if(s == null){
+			return null;
+		}
+		
+		if(s.length() == 0){
+			return new String[0];
+		}
+		
+		List<String> rst = new ArrayList<String>();
+		helper(s, rst, new String(), 0);
+		
+		String[] result = new String[rst.size() - 1];
+		Collections.sort(rst);
+		
+		for(int i = 1; i < rst.size(); i++){
+			result[i - 1] = rst.get(i);
+		}
+		
+		return result;
+		
+	}
+	
+	private static void helper(String s, List<String> rst, String sub, int start){
+		rst.add(new String(sub));
+		
+		for(int i = start; i < s.length(); i++){
+			
+			if(i + 1 < s.length() && s.charAt(i) == s.charAt(i + 1)){
+				continue;
+			}
+			sub += s.charAt(i);
+			helper(s, rst, sub, i + 1);
+			sub = sub.substring(0, sub.length() - 1);
+		}
+	}
+	
+	
+}
