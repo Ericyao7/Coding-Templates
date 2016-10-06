@@ -1,5 +1,5 @@
-private HashMap<Integer, DoubleLinkedListNode> map 
-        = new HashMap<Integer, DoubleLinkedListNode>();
+public class LRUCache {
+    private HashMap<Integer, DoubleLinkedListNode> map = new HashMap<Integer, DoubleLinkedListNode>();
     private DoubleLinkedListNode head;
     private DoubleLinkedListNode end;
     private int capacity;
@@ -89,3 +89,4 @@ class DoubleLinkedListNode {
         val = value;
         this.key = key;
     }
+}
