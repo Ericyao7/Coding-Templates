@@ -12,9 +12,10 @@ public String count(String s, int k){
     return sb.toString();
 }
 
-
-
-Iterator entries = m.entrySet().iterator();
+/*
+    Iterator may cause Time Limit Exceed
+    
+    Iterator entries = m.entrySet().iterator();
 
         while (entries.hasNext()){
             Map.Entry entry = (Map.Entry) entries.next();
@@ -24,4 +25,9 @@ Iterator entries = m.entrySet().iterator();
                 res++;
             }
 
+        }
+*/
+
+for (List<String> item: m.values()) {
+    	    result.add(item);
         }
