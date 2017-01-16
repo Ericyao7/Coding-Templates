@@ -5,6 +5,12 @@ class Solution {
      * @param source string to be scanned.
      * @param target string containing the sequence of characters to match.
      */
+    
+    /*
+        if want to find if there is any substring, use !=-1
+        because it is used to return the index;
+    */
+    
     public int strStr(String source, String target) {
         if (source == null || target == null) {
             return -1;
